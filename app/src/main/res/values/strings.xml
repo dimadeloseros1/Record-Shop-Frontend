@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Record Shop Frontend</string>
+    <string name="record_shop_image">Record Shop Image</string>
 </resources>
