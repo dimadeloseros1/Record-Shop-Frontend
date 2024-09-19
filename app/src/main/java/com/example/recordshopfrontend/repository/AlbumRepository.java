@@ -1,7 +1,9 @@
 package com.example.recordshopfrontend.repository;
 
 import android.app.Application;
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -53,12 +55,13 @@ public class AlbumRepository {
         call.enqueue(new Callback<Albums>() {
             @Override
             public void onResponse(Call<Albums> call, Response<Albums> response) {
-
+                Toast.makeText(application.getApplicationContext(), "Album added to the database", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<Albums> call, Throwable t) {
-
+                Toast.makeText(application.getApplicationContext(), "Fail! Album could not be added to the database", Toast.LENGTH_SHORT).show();
+                Log.e("POST REQ", t.getMessage());
             }
         });
     }
