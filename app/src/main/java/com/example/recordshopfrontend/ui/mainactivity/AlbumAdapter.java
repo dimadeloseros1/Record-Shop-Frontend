@@ -20,20 +20,12 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
     List<Albums> albumsList;
     Context context;
 
-    public AlbumAdapter(List<Albums> albums, Context context) {
-        this.albumsList = albums;
+    public AlbumAdapter(Context context, List<Albums> albums) {
         this.context = context;
+        this.albumsList = albums;
     }
 
-    public static class AlbumViewHolder extends RecyclerView.ViewHolder {
 
-        private AlbumLayoutBinding albumItemBinding;
-
-        public AlbumViewHolder(AlbumLayoutBinding albumItemBinding) {
-            super(albumItemBinding.getRoot());
-            this.albumItemBinding = albumItemBinding;
-        }
-    }
 
     @NonNull
     @Override
@@ -59,5 +51,15 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
     @Override
     public int getItemCount() {
         return albumsList.size();
+    }
+
+    public static class AlbumViewHolder extends RecyclerView.ViewHolder {
+
+        private AlbumLayoutBinding albumItemBinding;
+
+        public AlbumViewHolder(@NonNull AlbumLayoutBinding albumItemBinding) {
+            super(albumItemBinding.getRoot());
+            this.albumItemBinding = albumItemBinding;
+        }
     }
 }

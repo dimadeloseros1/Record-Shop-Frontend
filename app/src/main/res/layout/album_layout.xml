@@ -11,7 +11,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
+
 
         <ImageView
             android:id="@+id/imageView"
@@ -19,6 +21,7 @@
             android:layout_height="103dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:contentDescription="@string/album"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/musicheadphones" />
@@ -31,6 +34,7 @@
             android:layout_marginTop="32dp"
             android:text="@={albums.artist}"
             android:textAlignment="center"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Artist" />
@@ -41,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="24dp"
+            android:textSize="18sp"
             android:text="@={albums.albumName}"
             android:textAlignment="center"
             app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -51,41 +56,43 @@
             android:id="@+id/albums_genre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="57dp"
+            android:layout_marginEnd="24dp"
             android:text="@={albums.genre}"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="22sp"
+            android:textColor="#3f6bff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.809"
             app:layout_constraintStart_toEndOf="@+id/album_artist"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             tools:text="Genre" />
 
-        <TextView
-            android:id="@+id/albums_stock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="87dp"
-            android:text="@={`` + albums.stock}"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/album_name"
-            app:layout_constraintTop_toBottomOf="@+id/albums_genre"
-            tools:text="stock" />
+            <TextView
+                android:id="@+id/albums_stock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="87dp"
+                android:text="@={`` + albums.stock}"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.47"
+                app:layout_constraintStart_toEndOf="@+id/album_name"
+                app:layout_constraintTop_toBottomOf="@+id/albums_genre"
+                tools:text="stock" />
 
-        <TextView
+            <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="188dp"
             android:layout_marginTop="10dp"
+            android:textSize="18sp"
             android:text="@={`` + albums.releaseYear}"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -93,7 +100,5 @@
             app:layout_constraintTop_toBottomOf="@+id/albums_genre"
             app:layout_constraintVertical_bias="0.382"
             tools:text="year" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
