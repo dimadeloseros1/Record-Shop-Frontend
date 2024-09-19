@@ -6,4 +6,5 @@
     <string name="album_name">Album name...</string>
     <string name="stock">Stock...</string>
     <string name="artist_name">Artist name...</string>
+    <string name="add_album">Add Album</string>
 </resources>

@@ -20,32 +20,32 @@
             android:id="@+id/editTextText9"
             android:layout_width="234dp"
             android:layout_height="52dp"
+            android:layout_marginTop="41dp"
             android:layout_marginEnd="89dp"
-            android:layout_marginBottom="28dp"
             android:ems="10"
+            android:hint="@string/genre"
             android:inputType="text"
             android:text="@={album.genre}"
-            android:hint="@string/genre"
-            app:layout_constraintBottom_toTopOf="@+id/editTextText8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText10" />
 
         <EditText
             android:id="@+id/editTextText10"
             android:layout_width="234dp"
             android:layout_height="52dp"
             android:layout_marginStart="88dp"
+            android:layout_marginTop="64dp"
             android:layout_marginEnd="89dp"
-            android:layout_marginBottom="37dp"
             android:ems="10"
+            android:hint="@string/album_name"
             android:inputType="text"
             android:text="@={album.albumName}"
-            android:hint="@string/album_name"
-            app:layout_constraintBottom_toTopOf="@+id/editTextText9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
         <EditText
             android:id="@+id/editTextText8"
@@ -67,19 +67,17 @@
             android:id="@+id/editTextText"
             android:layout_width="234dp"
             android:layout_height="52dp"
+            android:layout_gravity="center"
             android:layout_marginStart="88dp"
-            android:layout_marginTop="103dp"
+            android:layout_marginTop="69dp"
             android:layout_marginEnd="89dp"
-            android:layout_marginBottom="46dp"
+            android:elevation="2dp"
             android:ems="10"
+            android:hint="@string/artist_name"
             android:inputType="text"
             android:text="@={album.artist}"
-            android:hint="@string/artist_name"
-            android:elevation="2dp"
-            android:layout_gravity="center"
-            app:layout_constraintBottom_toTopOf="@+id/editTextText10"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -92,13 +90,15 @@
             android:layout_marginEnd="85dp"
             android:layout_marginBottom="62dp"
             android:ems="10"
+            android:hint="Year..."
             android:inputType="number"
             android:text="@={`` + album.releaseYear}"
-            android:hint="Year..."
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText8" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextText8"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView"
@@ -117,6 +117,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="129dp"
+            android:layout_height="58dp"
+            android:layout_marginStart="144dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="138dp"
+            android:layout_marginBottom="28dp"
+            android:text="@string/add_album"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="33dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_revert" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 
