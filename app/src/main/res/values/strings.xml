@@ -2,4 +2,8 @@
     <string name="app_name">Record Shop Frontend</string>
     <string name="record_shop_image">Record Shop Image</string>
     <string name="album">Album</string>
+    <string name="genre">Genre...</string>
+    <string name="album_name">Album name...</string>
+    <string name="stock">Stock...</string>
+    <string name="artist_name">Artist name...</string>
 </resources>

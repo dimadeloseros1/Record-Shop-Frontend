@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="album"
+            type="com.example.recordshopfrontend.model.Albums" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.addalbum.AddNewAlbumActivity">
+
+        <EditText
+            android:id="@+id/editTextText9"
+            android:layout_width="234dp"
+            android:layout_height="52dp"
+            android:layout_marginEnd="89dp"
+            android:layout_marginBottom="28dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="@={album.genre}"
+            android:hint="@string/genre"
+            app:layout_constraintBottom_toTopOf="@+id/editTextText8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextText10"
+            android:layout_width="234dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="88dp"
+            android:layout_marginEnd="89dp"
+            android:layout_marginBottom="37dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="@={album.albumName}"
+            android:hint="@string/album_name"
+            app:layout_constraintBottom_toTopOf="@+id/editTextText9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextText8"
+            android:layout_width="234dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="85dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="@={`` + album.stock}"
+            android:hint="@string/stock"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText9" />
+
+        <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="234dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="103dp"
+            android:layout_marginEnd="89dp"
+            android:layout_marginBottom="46dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="@={album.artist}"
+            android:hint="@string/artist_name"
+            android:elevation="2dp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/editTextText10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/editTextText7"
+            android:layout_width="234dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginTop="51dp"
+            android:layout_marginEnd="85dp"
+            android:layout_marginBottom="62dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="@={`` + album.releaseYear}"
+            android:hint="Year..."
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextText8" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="232dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="99dp"
+            android:background="#90DDE2"
+            android:backgroundTintMode="screen"
+            android:fontFamily="cursive"
+            android:text="post album"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
