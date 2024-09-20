@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.updatealbum.UpdateAlbumActivity">
+
+        <TextView
+            android:id="@+id/edit_album"
+            android:layout_width="411dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="2dp"
+            android:background="#2196F3"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="@string/update_album"
+            android:textColor="#EBDF39"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_artist_name"
+            android:layout_width="304dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="32dp"
+            android:ems="10"
+            android:hint="@string/artist_name"
+            android:inputType="text"
+            android:text=""
+            app:layout_constraintBottom_toTopOf="@+id/edit_album_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_album_name"
+            android:layout_width="304dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="22dp"
+            android:ems="10"
+            android:hint="@string/album_name"
+            android:inputType="text"
+            android:text=""
+            app:layout_constraintBottom_toTopOf="@+id/edit_album_genre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_album_genre"
+            android:layout_width="304dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="27dp"
+            android:ems="10"
+            android:hint="@string/genre"
+            android:inputType="text"
+            android:text=""
+            app:layout_constraintBottom_toTopOf="@+id/edit_album_stock"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_album_stock"
+            android:layout_width="304dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="25dp"
+            android:ems="10"
+            android:hint="@string/stock"
+            android:inputType="number"
+            android:text=""
+            app:layout_constraintBottom_toTopOf="@+id/edit_release_year"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_release_year"
+            android:layout_width="304dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="204dp"
+            android:ems="10"
+            android:hint="@string/relase_year"
+            android:inputType="number"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="139dp"
+            android:layout_height="64dp"
+            android:text="Update"
+            android:textSize="21sp"
+            android:onClick="@{clickHandler::updateAlbum}"
+            tools:layout_editor_absoluteX="53dp"
+            tools:layout_editor_absoluteY="554dp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="139dp"
+            android:layout_height="64dp"
+            android:text="Delete"
+            android:textSize="21sp"
+            android:onClick="@{clickHandler::deleteAlbum}"
+            tools:layout_editor_absoluteX="218dp"
+            tools:layout_editor_absoluteY="554dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/ic_menu_revert"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="659dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+
