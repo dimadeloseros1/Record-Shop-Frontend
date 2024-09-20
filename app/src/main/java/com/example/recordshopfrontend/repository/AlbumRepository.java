@@ -65,4 +65,40 @@ public class AlbumRepository {
             }
         });
     }
+
+    public void updateAlbum(long id, Albums albums) {
+        AlbumsApiService albumsApiService = RetrofitInstance.getService();
+        Call<Albums> call = albumsApiService.uptadeAlbums(id, albums);
+
+        call.enqueue(new Callback<Albums>() {
+            @Override
+            public void onResponse(Call<Albums> call, Response<Albums> response) {
+                Toast.makeText(application.getApplicationContext(), "Album Updated!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Albums> call, Throwable t) {
+                Toast.makeText(application.getApplicationContext(), "Could not Update Album", Toast.LENGTH_SHORT).show();
+                Log.e("PUT REQ", t.getMessage());
+            }
+        });
+    }
+
+    public void deleteAlbum(long id) {
+        AlbumsApiService albumsApiService = RetrofitInstance.getService();
+        Call<Void> call = albumsApiService.deleteAlbums(id);
+
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(application.getApplicationContext(), "Album Delete!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(application.getApplicationContext(), "Album could not be Deleted!", Toast.LENGTH_SHORT).show();
+                Log.e("DELETE REQ", t.getMessage());
+            }
+        });
+    }
 }
