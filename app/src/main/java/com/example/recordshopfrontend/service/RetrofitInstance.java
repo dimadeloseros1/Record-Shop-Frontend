@@ -9,7 +9,7 @@ public class RetrofitInstance {
 
     private static Retrofit retrofit = null;
     private static final String BASE_URL = "http://recordshopapi-env.eba-awmmxgqc.eu-west-2.elasticbeanstalk.com/api/v1/";
-
+//        private static final String BASE_URL = "http://172.25.134.152:8080/api/v1/";
     public static AlbumsApiService getService() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

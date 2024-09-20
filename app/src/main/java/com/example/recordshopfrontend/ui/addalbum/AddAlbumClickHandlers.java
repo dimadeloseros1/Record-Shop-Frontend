@@ -11,9 +11,9 @@ import com.example.recordshopfrontend.ui.mainactivity.MainActivityViewModel;
 
 public class AddAlbumClickHandlers {
 
-    private Albums albums;
-    private Context context;
-    private MainActivityViewModel mainActivityViewModel;
+     Albums albums;
+     Context context;
+     MainActivityViewModel mainActivityViewModel;
 
     public AddAlbumClickHandlers(Albums albums, Context context, MainActivityViewModel mainActivityViewModel) {
         this.albums = albums;
@@ -23,7 +23,7 @@ public class AddAlbumClickHandlers {
 
     public void onSubmitClickHandler(View view) {
 
-        if (albums.getArtist() == null || albums.getAlbumName() == null || albums.getGenre() == null || albums.getReleaseYear() <= 1900 || albums.getStock() <= 0) {
+        if (albums.getArtist() == null || albums.getAlbumName() == null  || albums.getReleaseYear() <= 1900 || albums.getStock() <= 0) {
             Toast.makeText(context, "Field cannot be empty", Toast.LENGTH_SHORT).show();
         } else {
 
@@ -34,8 +34,8 @@ public class AddAlbumClickHandlers {
                     albums.getStock(),
                     albums.getArtist(),
                     albums.getReleaseYear(),
-                    albums.getAlbumName(),
-                    albums.getGenre()
+                    albums.getGenre(),
+                    albums.getAlbumName()
             );
 
             mainActivityViewModel.postAlbum(newAlbums);

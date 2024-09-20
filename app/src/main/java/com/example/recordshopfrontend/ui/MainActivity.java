@@ -17,6 +17,7 @@ import com.example.recordshopfrontend.R;
 import com.example.recordshopfrontend.databinding.ActivityMainBinding;
 import com.example.recordshopfrontend.model.Albums;
 import com.example.recordshopfrontend.ui.mainactivity.AlbumAdapter;
+import com.example.recordshopfrontend.ui.mainactivity.MainActivityClickHandler;
 import com.example.recordshopfrontend.ui.mainactivity.MainActivityViewModel;
 
 import java.util.ArrayList;
@@ -28,20 +29,21 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Albums> albumsList;
     private AlbumAdapter albumAdapter;
     private MainActivityViewModel mainActivityViewModel;
-    private ActivityMainBinding activityMainBinding;
+    private ActivityMainBinding binding;
+    private MainActivityClickHandler clickHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+//        });
 
-        activityMainBinding = DataBindingUtil.setContentView(
+        binding = DataBindingUtil.setContentView(
                 this,
                 R.layout.activity_main
         );
@@ -49,8 +51,10 @@ public class MainActivity extends AppCompatActivity {
         mainActivityViewModel = new ViewModelProvider(this)
                 .get(MainActivityViewModel.class);
 
+        clickHandler = new MainActivityClickHandler(this);
+        binding.setClickHandler(clickHandler);
 
-            getAllAlbums();
+        getAllAlbums();
     }
 
     private void getAllAlbums() {
@@ -65,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayInRecyclerView() {
 
-        recyclerView = activityMainBinding.recyclerView;
+        recyclerView = binding.recyclerView;
         albumAdapter = new AlbumAdapter(this, albumsList);
         recyclerView.setAdapter(albumAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);

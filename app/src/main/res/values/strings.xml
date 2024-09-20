@@ -7,4 +7,14 @@
     <string name="stock">Stock...</string>
     <string name="artist_name">Artist name...</string>
     <string name="add_album">Add Album</string>
+    <string name="back_button">Back Button</string>
+    <string-array name="genre">
+        <item>TRANCE</item>
+        <item>HOUSE</item>
+        <item>ROCK</item>
+        <item>HIPHOP</item>
+        <item>POP</item>
+        <item>METAL</item>
+        <item>DNB</item>
+    </string-array>
 </resources>
