@@ -20,10 +20,12 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
 
     List<Albums> albumsList;
     Context context;
+    private final RecyclerViewInterface recyclerViewInterface;
 
-    public AlbumAdapter(Context context, List<Albums> albums) {
+    public AlbumAdapter(Context context, List<Albums> albums, RecyclerViewInterface recyclerViewInterface) {
         this.context = context;
         this.albumsList = albums;
+        this.recyclerViewInterface = recyclerViewInterface;
     }
 
 
@@ -38,7 +40,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
                         parent,
                         false);
 
-        return new AlbumViewHolder(binding);
+        return new AlbumViewHolder(binding, recyclerViewInterface);
     }
 
     @Override
