@@ -2,6 +2,7 @@ package com.example.recordshopfrontend.ui.mainactivity;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -57,9 +58,22 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
 
         private AlbumLayoutBinding albumItemBinding;
 
-        public AlbumViewHolder(@NonNull AlbumLayoutBinding albumItemBinding) {
+        public AlbumViewHolder(@NonNull AlbumLayoutBinding albumItemBinding, RecyclerViewInterface recyclerViewInterface) {
             super(albumItemBinding.getRoot());
             this.albumItemBinding = albumItemBinding;
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (recyclerViewInterface != null) {
+                        int position = getAdapterPosition();
+
+                        if (position != RecyclerView.NO_POSITION) {
+                            recyclerViewInterface.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }
