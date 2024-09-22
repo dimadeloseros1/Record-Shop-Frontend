@@ -1,5 +1,8 @@
 package com.example.recordshopfrontend.ui;
 
+import static android.provider.MediaStore.Audio.AudioColumns.ALBUM_KEY;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -20,6 +23,7 @@ import com.example.recordshopfrontend.ui.mainactivity.AlbumAdapter;
 import com.example.recordshopfrontend.ui.mainactivity.MainActivityClickHandler;
 import com.example.recordshopfrontend.ui.mainactivity.MainActivityViewModel;
 import com.example.recordshopfrontend.ui.mainactivity.RecyclerViewInterface;
+import com.example.recordshopfrontend.ui.updatealbum.UpdateAlbumActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,6 +87,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
     @Override
     public void onItemClick(int position) {
+        Intent intent = new Intent(MainActivity.this, UpdateAlbumActivity.class);
+
+        intent.putExtra(ALBUM_KEY, albumsList.get(position));
+
+        startActivity(intent);
 
     }
 }
