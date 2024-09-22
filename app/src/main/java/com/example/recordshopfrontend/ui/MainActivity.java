@@ -19,11 +19,12 @@ import com.example.recordshopfrontend.model.Albums;
 import com.example.recordshopfrontend.ui.mainactivity.AlbumAdapter;
 import com.example.recordshopfrontend.ui.mainactivity.MainActivityClickHandler;
 import com.example.recordshopfrontend.ui.mainactivity.MainActivityViewModel;
+import com.example.recordshopfrontend.ui.mainactivity.RecyclerViewInterface;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerViewInterface {
 
     private RecyclerView recyclerView;
     private ArrayList<Albums> albumsList;
@@ -62,20 +63,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Albums> albumsFromLiveData) {
                 albumsList = (ArrayList<Albums>) albumsFromLiveData;
-                displayInRecyclerView();
+                displayAlbumInRecyclerView();
             }
         });
     }
 
-    private void displayInRecyclerView() {
+    private void displayAlbumInRecyclerView() {
 
         recyclerView = binding.recyclerView;
-        albumAdapter = new AlbumAdapter(this, albumsList);
+        albumAdapter = new AlbumAdapter(this, albumsList, this);
         recyclerView.setAdapter(albumAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
         albumAdapter.notifyDataSetChanged();
+    }
+
+
+    @Override
+    public void onItemClick(int position) {
+
     }
 }
