@@ -48,13 +48,27 @@
             android:id="@+id/recycler_view"
             android:layout_width="409dp"
             android:layout_height="0dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="55dp"
             android:layout_marginBottom="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recordShopImage"
             app:layout_constraintVertical_bias="0.0" />
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="351dp"
+            android:layout_height="42dp"
+            android:layout_margin="20dp"
+            android:layout_marginTop="12dp"
+            android:queryHint="Search title..."
+            android:background="@drawable/search_view_bg"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.254"
+            app:layout_constraintStart_toStartOf="@id/recycler_view"
+            app:layout_constraintTop_toBottomOf="@+id/recordShopImage" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
