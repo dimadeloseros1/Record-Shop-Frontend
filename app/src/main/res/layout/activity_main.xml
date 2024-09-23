@@ -48,7 +48,7 @@
             android:id="@+id/recycler_view"
             android:layout_width="409dp"
             android:layout_height="0dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="75dp"
             android:layout_marginBottom="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,13 +62,28 @@
             android:layout_height="42dp"
             android:layout_margin="20dp"
             android:layout_marginTop="12dp"
-            android:queryHint="Search title..."
             android:background="@drawable/search_view_bg"
+            android:queryHint="Search title..."
             app:layout_constraintBottom_toTopOf="@+id/recycler_view"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.254"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="@id/recycler_view"
-            app:layout_constraintTop_toBottomOf="@+id/recordShopImage" />
+            app:layout_constraintTop_toBottomOf="@+id/recordShopImage"
+            app:layout_constraintVertical_bias="0.0">
+
+        </SearchView>
+
+<!--        <SearchView-->
+<!--            android:id="@+id/categorySearchView"-->
+<!--            android:layout_width="351dp"-->
+<!--            android:layout_height="42dp"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:layout_marginTop="60dp"-->
+<!--            android:background="@drawable/search_view_bg"-->
+<!--            android:queryHint="Search genre..."-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/searchView" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
