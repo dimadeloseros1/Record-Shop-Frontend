@@ -78,4 +78,9 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.AlbumViewHol
             });
         }
     }
+
+    public void setFilteredList(ArrayList<Albums> filteredList) {
+        this.albumsList = filteredList;
+        notifyDataSetChanged();
+    }
 }
