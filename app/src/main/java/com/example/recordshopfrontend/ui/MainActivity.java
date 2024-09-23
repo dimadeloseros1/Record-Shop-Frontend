@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     private MainActivityClickHandler clickHandler;
     private static final String ALBUMS_KEY = "albums";
     private SearchView searchView;
+//    private SearchView categorySearchView;
     private ArrayList<Albums> filteredList;
 
     @Override
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         );
 
 
+        // Search view by artist name
         mainActivityViewModel = new ViewModelProvider(this)
                 .get(MainActivityViewModel.class);
 
@@ -80,6 +82,23 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
             }
         });
 
+//        categorySearchView = findViewById(R.id.categorySearchView);
+//        categorySearchView.clearFocus();
+//
+//        categorySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String text) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String text) {
+//
+//                filterList(text);
+//
+//                return true;
+//            }
+//        });
     }
 
     private void getAllAlbums() {
@@ -128,6 +147,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
             if (albums.getArtist().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(albums);
             }
+
+//            if (albums.getGenre().toUpperCase().contains(text.toUpperCase())) {
+//                filteredList.add(albums);
+//            }
         }
 
         if (filteredList.isEmpty()) {
@@ -135,7 +158,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         } else {
             albumAdapter.setFilteredList(filteredList);
         }
-
-
     }
+
+//    private void categoryFilteredList(String text) {
+//
+//        categorySearchView
+//    }
 }
