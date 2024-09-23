@@ -5,6 +5,14 @@
 
     <data>
 
+        <variable
+            name="album"
+            type="com.example.recordshopfrontend.model.Albums" />
+
+        <variable
+            name="clickHandlers"
+            type="com.example.recordshopfrontend.ui.updatealbum.UpdateAlbumClickHandlers" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -40,7 +48,7 @@
             android:ems="10"
             android:hint="@string/artist_name"
             android:inputType="text"
-            android:text=""
+            android:text="@={album.artist}"
             app:layout_constraintBottom_toTopOf="@+id/edit_album_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -55,7 +63,7 @@
             android:ems="10"
             android:hint="@string/album_name"
             android:inputType="text"
-            android:text=""
+            android:text="@={album.albumName}"
             app:layout_constraintBottom_toTopOf="@+id/edit_album_genre"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -70,7 +78,7 @@
             android:ems="10"
             android:hint="@string/genre"
             android:inputType="text"
-            android:text=""
+            android:text="@={album.genre}"
             app:layout_constraintBottom_toTopOf="@+id/edit_album_stock"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -85,7 +93,7 @@
             android:ems="10"
             android:hint="@string/stock"
             android:inputType="number"
-            android:text=""
+            android:text="@={`` + album.stock}"
             app:layout_constraintBottom_toTopOf="@+id/edit_release_year"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -100,7 +108,7 @@
             android:ems="10"
             android:hint="@string/relase_year"
             android:inputType="number"
-            android:text=""
+            android:text="@={`` + album.releaseYear}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -109,30 +117,43 @@
             android:id="@+id/button2"
             android:layout_width="139dp"
             android:layout_height="64dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="26dp"
+            android:onClick="@{clickHandlers::onSubmitBtnClicked}"
             android:text="Update"
             android:textSize="21sp"
-            android:onClick="@{clickHandler::updateAlbum}"
-            tools:layout_editor_absoluteX="53dp"
-            tools:layout_editor_absoluteY="554dp" />
+            app:layout_constraintEnd_toStartOf="@+id/button3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_release_year" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="139dp"
             android:layout_height="64dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="54dp"
+            android:onClick="@{clickHandlers::onDeleteBtnClicked}"
             android:text="Delete"
             android:textSize="21sp"
-            android:onClick="@{clickHandler::deleteAlbum}"
-            tools:layout_editor_absoluteX="218dp"
-            tools:layout_editor_absoluteY="554dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button2"
+            app:layout_constraintTop_toBottomOf="@+id/edit_release_year" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="339dp"
+            android:layout_marginBottom="16dp"
             android:clickable="true"
-            app:srcCompat="@android:drawable/ic_menu_revert"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="659dp" />
+            android:onClickListener="@{clickHandlers::onBackButtonClicked}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_revert" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
