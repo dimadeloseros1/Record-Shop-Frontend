@@ -40,12 +40,27 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     private MainActivityClickHandler clickHandler;
     private static final String ALBUMS_KEY = "albums";
     private SearchView searchView;
+    private ArrayList<Albums> filteredList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+//        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        binding = DataBindingUtil.setContentView(
+                this,
+                R.layout.activity_main
+        );
+
+
+        mainActivityViewModel = new ViewModelProvider(this)
+                .get(MainActivityViewModel.class);
+
+        clickHandler = new MainActivityClickHandler(this);
+        binding.setClickHandler(clickHandler);
+
+        getAllAlbums();
 
         searchView = findViewById(R.id.searchView);
         searchView.clearFocus();
@@ -59,24 +74,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
             @Override
             public boolean onQueryTextChange(String s) {
 
-                filterList(e);
+                filterList(s);
 
                 return true;
             }
         });
 
-        binding = DataBindingUtil.setContentView(
-                this,
-                R.layout.activity_main
-        );
-
-        mainActivityViewModel = new ViewModelProvider(this)
-                .get(MainActivityViewModel.class);
-
-        clickHandler = new MainActivityClickHandler(this);
-        binding.setClickHandler(clickHandler);
-
-        getAllAlbums();
     }
 
     private void getAllAlbums() {
@@ -106,26 +109,31 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     public void onItemClick(int position) {
         Intent intent = new Intent(MainActivity.this, UpdateAlbumActivity.class);
 
-        intent.putExtra(ALBUMS_KEY, albumsList.get(position));
-        startActivity(intent);
+        if (filteredList == null || filteredList.isEmpty()) {
+            intent.putExtra(ALBUMS_KEY, albumsList.get(position));
 
+        } else {
+            intent.putExtra(ALBUMS_KEY, filteredList.get(position));
+        }
+
+        startActivity(intent);
     }
 
     private void filterList(String text) {
 
-        albumsList = new ArrayList<>();
+        filteredList = new ArrayList<>();
 
         for (Albums albums : albumsList) {
 
             if (albums.getArtist().toLowerCase().contains(text.toLowerCase())) {
-                albumsList.add(albums);
+                filteredList.add(albums);
             }
         }
 
-        if (albumsList.isEmpty()) {
+        if (filteredList.isEmpty()) {
             Toast.makeText(this, "No album found", Toast.LENGTH_SHORT).show();
         } else {
-            albumAdapter.setFilteredList(albumsList);
+            albumAdapter.setFilteredList(filteredList);
         }
 
 
